@@ -1,38 +1,39 @@
-# For PK — Nine Years, One Whole Universe
+# PK Birthday — Flat Root Media Fix
 
-This is the final audio-and-wish fix for the immersive PK birthday website.
+This package fixes the asset-layout mismatch for the `happybirthday_priyanshu_26` GitHub repository.
 
-## Files and deployment
+## Required flat-root layout
 
-Keep the project structure intact:
+Keep every file directly in the repository root:
 
 - `index.html`
 - `styles.css`
 - `app.js`
-- `assets/favicon.svg`
-- `assets/photos/` — enhanced original photographs
-- `assets/audio/birthday-surprise.mp3` — party boom followed immediately by Jaane Kyun
+- `favicon.svg`
+- `birthday-surprise.mp3`
+- `pk-formal.webp`
+- `jnv-entrance.webp`
+- `the-crew.webp`
+- `pk-and-chou.webp`
+- `the-evidence.webp`
+- `blue-suit.webp`
+- `blue-kurta.webp`
+- `jnv-signboard.webp`
 
-For GitHub Pages, upload the contents of this folder to the repository root, preserving the `assets/` subfolders. Remove the old `style.css`, `script.js`, and the previous root-level image/audio copies so the old site files cannot be served by mistake.
+The HTML and JavaScript use these root-level filenames. There is intentionally no `assets/photos/` or `assets/audio/` directory in this package.
 
 ## Local preview
 
-From this folder, run:
+Run from this folder:
 
 ```powershell
 py -m http.server 8000
 ```
 
-Then open `http://localhost:8000`.
+Open `http://localhost:8000`.
 
-The previous audio loader used `fetch()` to turn the MP3 into a Blob. Chromium can block `fetch()` for a local `file://` page, leaving the sound indicator locked. This version uses the browser's native `<audio src>` loading path with `preload="auto"`; it works with a normal local web server and is compatible with static hosting.
+## GitHub Pages
 
-## Cake, wish and sound sequence
+Upload the contents of this folder to the repository root, preserving the flat layout. If the repository already contains the same root-level media files, do not create nested `assets` folders. Commit the updated `index.html`, `app.js`, and `styles.css` together with any media files that are missing.
 
-1. The MP3 is preloaded before the wish control is unlocked. The button reports `SOUND READY` rather than remaining labelled `SOUND LOCKED`.
-2. The visitor taps the cake or the wish button. A single `audio.play()` call is made directly inside that tap handler, so browser user-gesture audio restrictions are respected.
-3. The combined soundtrack begins with the supplied party boom (1.15 seconds). The first 2 seconds of silent lead-in were removed from the Jaane Kyun source, so the music follows the boom without the previous silent gap.
-4. The candles light and remain lit through the party boom and the continuing song. After a 5.2-second minimum wish window, the button changes to “BLOW OUT THE CANDLES”. The flames and celebration change only after PK explicitly taps that button. There is no automatic candle extinguishing timer.
-5. The song loops from its own beginning after the first playthrough; the party boom is not replayed on each loop.
-
-No website can override a device mute switch, OS-level audio restriction, or a visitor explicitly pausing the soundtrack. If playback is rejected by the browser, the wish sequence resets and displays a retry message instead of pretending that sound played.
+The sound is loaded by the native `<audio>` element from `birthday-surprise.mp3`. Browser playback remains subject to user gesture and device audio permissions.
