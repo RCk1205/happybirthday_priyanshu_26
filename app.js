@@ -1,4 +1,4 @@
-(() => {
+﻿(() => {
   "use strict";
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
@@ -42,7 +42,7 @@
     toastTimer = setTimeout(() => { toast.hidden = true; }, 3000);
   }
 
-  function setWishButton(label, icon = "✦", trailing = "↗") {
+  function setWishButton(label, icon = "âœ¦", trailing = "â†—") {
     const iconNode = $(".wish-button-icon", makeWishButton);
     const labelNode = $("#wishButtonText", makeWishButton);
     const trailingNode = $(".wish-button-arrow", makeWishButton);
@@ -141,7 +141,7 @@
     else if (playing && birthdayAudio.currentTime < boomLength) soundLabel.textContent = "PARTY BOOM";
     else if (playing) soundLabel.textContent = "JAANE KYUN";
     else soundLabel.textContent = "SOUND PAUSED";
-    soundButton.querySelector(".sound-play").textContent = playing ? "Ⅱ" : "▶";
+    soundButton.querySelector(".sound-play").textContent = playing ? "â…¡" : "â–¶";
   }
 
   function setAudioReady() {
@@ -150,7 +150,7 @@
     audioPreparing = false;
     cakeTrigger.setAttribute("aria-disabled", "false");
     makeWishButton.disabled = false;
-    setWishButton("MAKE A WISH — TAP WHEN READY", "✦", "↗");
+    setWishButton("MAKE A WISH â€” TAP WHEN READY", "âœ¦", "â†—");
     soundStatus.textContent = "SOUND READY. YOUR TAP WILL PLAY THE PARTY BOOM, THEN JAANE KYUN.";
     soundLabel.textContent = "SOUND READY";
     updateSoundState();
@@ -160,8 +160,8 @@
     audioPreparing = false;
     audioReady = false;
     makeWishButton.disabled = false;
-    setWishButton("RETRY SOUND LOAD", "↻", "↗");
-    soundStatus.textContent = message || "THE SOUNDTRACK COULD NOT LOAD. CHECK assets/audio/birthday-surprise.mp3 AND RETRY.";
+    setWishButton("RETRY SOUND LOAD", "â†»", "â†—");
+    soundStatus.textContent = message || "THE SOUNDTRACK COULD NOT LOAD. CHECK birthday-surprise.mp3 AND RETRY.";
     soundLabel.textContent = "SOUND RETRY";
     updateSoundState();
   }
@@ -170,7 +170,7 @@
     if (audioReady || audioPreparing) return;
     audioPreparing = true;
     makeWishButton.disabled = true;
-    setWishButton("LOADING THE SURPRISE…", "✦", "↗");
+    setWishButton("LOADING THE SURPRISEâ€¦", "âœ¦", "â†—");
     soundStatus.textContent = "LOADING THE COMPLETE SOUNDTRACK. THE WISH BUTTON WILL UNLOCK WHEN IT IS READY.";
     soundLabel.textContent = "LOADING SOUND";
     soundButton.disabled = true;
@@ -199,7 +199,7 @@
   birthdayAudio.addEventListener("loadedmetadata", checkAudioBuffer);
   birthdayAudio.addEventListener("loadeddata", checkAudioBuffer);
   birthdayAudio.addEventListener("error", () => {
-    if (!audioReady) setAudioFailure("SOUND FILE NOT FOUND OR NOT SUPPORTED. CHECK assets/audio/birthday-surprise.mp3, THEN RETRY.");
+    if (!audioReady) setAudioFailure("SOUND FILE NOT FOUND OR NOT SUPPORTED. CHECK birthday-surprise.mp3, THEN RETRY.");
   });
   birthdayAudio.addEventListener("play", updateSoundState);
   birthdayAudio.addEventListener("pause", updateSoundState);
@@ -223,10 +223,10 @@
     scene.classList.remove("wish-in-progress");
     scene.classList.add("celebrated");
     cakeTrigger.setAttribute("aria-disabled", "true");
-    setWishButton("WISH GRANTED · HAPPY 20TH!", "✦", "✓");
+    setWishButton("WISH GRANTED Â· HAPPY 20TH!", "âœ¦", "âœ“");
     makeWishButton.disabled = true;
-    $("#wishCountdown").textContent = "WISH SENT. NOW GO MAKE IT HAPPEN. ✦";
-    soundStatus.textContent = "THE CANDLES ARE OUT. JAANE KYUN IS PLAYING — LET THE CELEBRATION CONTINUE.";
+    $("#wishCountdown").textContent = "WISH SENT. NOW GO MAKE IT HAPPEN. âœ¦";
+    soundStatus.textContent = "THE CANDLES ARE OUT. JAANE KYUN IS PLAYING â€” LET THE CELEBRATION CONTINUE.";
     launchConfetti();
     wishTimers.push(window.setTimeout(launchConfetti, 520));
   }
@@ -235,7 +235,7 @@
     if (!wishInProgress) return;
     wishReadyToBlow = true;
     makeWishButton.disabled = false;
-    setWishButton("BLOW OUT THE CANDLES", "✦", "↗");
+    setWishButton("BLOW OUT THE CANDLES", "âœ¦", "â†—");
     $("#wishCountdown").textContent = "WHEN YOUR WISH IS READY, TAP TO BLOW OUT THE CANDLES.";
     soundStatus.textContent = "YOUR WISH IS STILL LIT. TAP THE BUTTON WHEN YOU ARE READY.";
   }
@@ -244,9 +244,9 @@
     const countdown = $("#wishCountdown");
     const lines = [
       [0, "CLOSE YOUR EYES. TAKE A BREATH."],
-      [1150, "MAKE YOUR WISH…"],
+      [1150, "MAKE YOUR WISHâ€¦"],
       [2300, "HOLD IT CLOSE. THINK BIG."],
-      [3400, "ALMOST THERE…"],
+      [3400, "ALMOST THEREâ€¦"],
       [4400, "TAKE YOUR TIME. YOUR CANDLES ARE STILL LIT."]
     ];
     lines.forEach(([delay, message]) => {
@@ -268,7 +268,7 @@
     scene.classList.remove("wish-in-progress", "celebrated");
     cakeTrigger.setAttribute("aria-disabled", "false");
     makeWishButton.disabled = false;
-    setWishButton("RETRY THE BIRTHDAY SOUND", "↻", "↗");
+    setWishButton("RETRY THE BIRTHDAY SOUND", "â†»", "â†—");
     $("#wishCountdown").textContent = "YOUR WISH IS STILL WAITING. TAP AGAIN WHEN SOUND IS READY.";
     soundStatus.textContent = "THIS DEVICE BLOCKED AUDIO PLAYBACK. TAP THE WISH BUTTON AGAIN TO RETRY.";
     soundButton.disabled = true;
@@ -312,7 +312,7 @@
     scene.classList.remove("celebrated");
     scene.classList.add("wish-in-progress");
     makeWishButton.disabled = true;
-    setWishButton("YOUR WISH IS IN THE MAKING…", "♡", "✦");
+    setWishButton("YOUR WISH IS IN THE MAKINGâ€¦", "â™¡", "âœ¦");
     soundStatus.textContent = "PARTY BOOM! JAANE KYUN WILL FOLLOW IN THE SAME TRACK.";
     $("#wishCountdown").textContent = "CLOSE YOUR EYES. TAKE A BREATH.";
     beginWishCountdown();
@@ -354,11 +354,11 @@
   // Operation replay: an animated sequence of mission log entries.
   const operationLog = $("#operationLog");
   const missionLines = [
-    "23:59 — DECORATIONS COMPLETE. EVERYONE, STAY QUIET.",
-    "00:00 — HAPPY BIRTHDAY, ROHAN!!!",
-    "00:01 — ALERT: HOUSEMASTER DETECTED NEAR BLOCK 01.",
-    "00:02 — FIFTEEN FRIENDS. FIFTEEN DIFFERENT ESCAPE PLANS.",
-    "00:30 — SEARCH OVER. FRIENDSHIP INTACT. STEALTH: QUESTIONABLE."
+    "23:59 â€” DECORATIONS COMPLETE. EVERYONE, STAY QUIET.",
+    "00:00 â€” HAPPY BIRTHDAY, ROHAN!!!",
+    "00:01 â€” ALERT: HOUSEMASTER DETECTED NEAR BLOCK 01.",
+    "00:02 â€” FIFTEEN FRIENDS. FIFTEEN DIFFERENT ESCAPE PLANS.",
+    "00:30 â€” SEARCH OVER. FRIENDSHIP INTACT. STEALTH: QUESTIONABLE."
   ];
   $("#replayOperation").addEventListener("click", () => {
     clearInterval(operationTimer);
@@ -390,13 +390,13 @@
 
   // Gallery: full-frame images, no crop; tap opens an uncropped lightbox.
   const photos = [
-    { src:"assets/photos/the-crew.webp", alt:"The crew together outdoors", caption:"The squad. One frame, several stories." },
-    { src:"assets/photos/pk-and-chou.webp", alt:"PK and Rahul standing together", caption:"PK & Chou. The original partnership." },
-    { src:"assets/photos/pk-formal.webp", alt:"PK in a formal blue waistcoat and tie", caption:"A closer look. Same PK energy." },
-    { src:"assets/photos/blue-kurta.webp", alt:"PK wearing a light blue kurta", caption:"Traditional mode. Same PK energy." },
-    { src:"assets/photos/blue-suit.webp", alt:"PK wearing a blue formal suit", caption:"The Old Horse cleaned up nicely." },
-    { src:"assets/photos/the-evidence.webp", alt:"A candid photograph from the old days", caption:"Exhibit A. No comments. Only evidence." },
-    { src:"assets/photos/jnv-signboard.webp", alt:"Jawahar Navodaya Vidyalaya Korba signboard", caption:"The place that gave us more than a school ID." }
+    { src:"the-crew.webp", alt:"The crew together outdoors", caption:"The squad. One frame, several stories." },
+    { src:"pk-and-chou.webp", alt:"PK and Rahul standing together", caption:"PK & Chou. The original partnership." },
+    { src:"pk-formal.webp", alt:"PK in a formal blue waistcoat and tie", caption:"A closer look. Same PK energy." },
+    { src:"blue-kurta.webp", alt:"PK wearing a light blue kurta", caption:"Traditional mode. Same PK energy." },
+    { src:"blue-suit.webp", alt:"PK wearing a blue formal suit", caption:"The Old Horse cleaned up nicely." },
+    { src:"the-evidence.webp", alt:"A candid photograph from the old days", caption:"Exhibit A. No comments. Only evidence." },
+    { src:"jnv-signboard.webp", alt:"Jawahar Navodaya Vidyalaya Korba signboard", caption:"The place that gave us more than a school ID." }
   ];
   let galleryIndex = 0;
   const galleryImage = $("#galleryImage");
