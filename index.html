@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#141027">
+  <meta name="description" content="Nine years, countless stories, and one birthday made personal. A birthday experience from Rahul to PK.">
+  <title>For PK — Nine Years, One Whole Universe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="intro-locked">
+  <div class="ambient-grain" aria-hidden="true"></div>
+  <div class="ambient-orb orb-a" aria-hidden="true"></div>
+  <div class="ambient-orb orb-b" aria-hidden="true"></div>
+
+  <!-- A personal invitation: the only intentionally card-like element. -->
+  <section class="welcome-screen" id="welcomeScreen" aria-labelledby="welcomeTitle">
+    <div class="welcome-stars" aria-hidden="true"><i>✦</i><i>✧</i><i>✦</i><i>·</i><i>✧</i><i>✦</i></div>
+    <div class="invite-wrap">
+      <div class="invite-backdrop"></div>
+      <div class="invite-paper" id="invitePaper">
+        <div class="invite-corner corner-a"></div><div class="invite-corner corner-b"></div>
+        <div class="invite-topline"><span>THE NAVODAYA ARCHIVE</span><span>08 / 11 / 2026</span></div>
+        <div class="invite-emblem"><span>PK</span><i>✦</i></div>
+        <p class="invite-kicker">A VERY PERSONAL INVITATION</p>
+        <h1 id="welcomeTitle">Dear PK,<br><em>this one's for you.</em></h1>
+        <p class="invite-copy">Nine years of stories. One birthday. A little chaos, a lot of memories, and a surprise from your favourite co-conspirator.</p>
+        <div class="invite-rule"><span>FROM RAHUL</span><span>ADMIT ONE · BEST FRIEND</span></div>
+        <button class="seal-button" id="openInvite" type="button" aria-label="Open your birthday invitation">
+          <span class="seal-shine"></span><strong>OPEN</strong><small>THE SURPRISE</small>
+        </button>
+        <p class="invite-foot">BREAK THE SEAL TO BEGIN <span>↗</span></p>
+      </div>
+      <div class="invite-ribbon" aria-hidden="true">A LITTLE SOMETHING FOR YOU</div>
+    </div>
+    <p class="welcome-caption">MADE WITH NOSTALGIA, MISCHIEF & AFFECTION · BY RAHUL</p>
+  </section>
+
+  <header class="topbar" id="topbar" aria-label="Experience controls" hidden>
+    <button class="wordmark" id="homeButton" type="button" aria-label="Return to birthday celebration">
+      <span class="wordmark-seal">09</span><span class="wordmark-text">THE NAVODAYA ARCHIVE<small>AN ORIGINAL RAHUL PRODUCTION</small></span>
+    </button>
+    <div class="top-progress" aria-live="polite">
+      <span id="chapterCounter">01 / 11</span>
+      <div class="top-progress-track"><span id="topProgressFill"></span></div>
+      <span id="chapterName">THE BIRTHDAY</span>
+    </div>
+    <div class="top-actions">
+      <button class="chapter-menu-button" id="chapterMenuButton" type="button" aria-expanded="false" aria-controls="chapterMenu">JUMP TO A MEMORY <span>⌄</span></button>
+      <button class="sound-button" id="soundButton" type="button" disabled aria-pressed="false" aria-label="Play or pause the birthday soundtrack"><span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span><span id="soundLabel">LOADING SOUND</span><span class="sound-play">▶</span></button>
+    </div>
+  </header>
+
+  <nav class="chapter-menu" id="chapterMenu" hidden aria-label="Choose a chapter">
+    <div class="chapter-menu-head"><span>THE STORY SO FAR</span><button type="button" id="closeChapterMenu" aria-label="Close chapter menu">×</button></div>
+    <ol id="chapterList"></ol>
+  </nav>
+
+  <main class="experience" id="experience" hidden>
+    <!-- 01: Birthday first. One gesture triggers the full boom + song mix. -->
+    <section class="scene scene-birthday is-active" data-title="THE BIRTHDAY" id="birthdayScene" aria-hidden="false">
+      <div class="scene-sparkles" aria-hidden="true"><b>✦</b><b>✧</b><b>✦</b><b>·</b><b>✧</b><b>✦</b><b>·</b></div>
+      <div class="birthday-copy scene-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> 08 NOVEMBER · THE DAY IS YOURS</p>
+        <p class="birthday-age">TWENTY, BUT MAKE IT <em>ICONIC.</em></p>
+        <h2>Happy birthday,<br><em>Priyanshu.</em></h2>
+        <p class="birthday-deck">Before we go back to the beginning, there's one thing we have to do first.</p>
+        <div class="wish-prompt"><span class="wish-line"></span><span>TAKE A BREATH. MAKE A WISH.</span><span class="wish-line"></span></div>
+        <p class="wish-countdown" id="wishCountdown" aria-live="polite">You have all the time you need. Tap when your wish is ready.</p>
+      </div>
+      <div class="cake-world" aria-label="An illustrated birthday cake with three candles">
+        <div class="cake-aura"></div><div class="cake-spark spark-one">✧</div><div class="cake-spark spark-two">✦</div><div class="cake-spark spark-three">✧</div>
+        <div class="cake-illustration" id="cakeIllustration" role="button" tabindex="0" aria-label="Tap the cake to make a wish and start the birthday surprise" aria-disabled="true">
+          <div class="cake-candle candle-left"><i></i></div><div class="cake-candle candle-center"><i></i></div><div class="cake-candle candle-right"><i></i></div>
+          <div class="cake-top-icing"></div><div class="cake-top-layer"></div><div class="cake-middle-layer"></div><div class="cake-bottom-layer"></div><div class="cake-drips"></div><div class="cake-plate"></div>
+          <div class="cake-berries"><i>✦</i><i>✦</i><i>✦</i></div>
+        </div>
+        <div class="cake-shadow"></div>
+        <button class="wish-button" id="makeWishButton" type="button" disabled><span class="wish-button-icon">✦</span><span id="wishButtonText">LOADING THE SURPRISE…</span><span class="wish-button-arrow">↗</span></button>
+        <p class="sound-status" id="soundStatus" role="status">Loading the complete boom + Jaane Kyun soundtrack before the wish.</p>
+      </div>
+      <div class="birthday-bottom"><span>MADE FOR ONE VERY SPECIFIC HUMAN</span><span>LET THE GOOD TIMES BEGIN <b>✦</b></span></div>
+      <div class="party-burst" id="partyBurst" aria-hidden="true"></div>
+    </section>
+
+    <!-- 02: The friendship portrait; the image is displayed at its native ratio. -->
+    <section class="scene scene-era" data-title="ONE WHOLE ERA" id="eraScene" aria-hidden="true">
+      <div class="era-layout">
+        <div class="era-copy scene-copy">
+          <p class="eyebrow">CHAPTER 01 <span>·</span> THE MAIN CHARACTER</p>
+          <p class="era-pretitle">NOT JUST A FRIEND.</p>
+          <h2>A whole<br><em>era.</em></h2>
+          <p class="era-intro">Nine years. A thousand laughs. A few questionable decisions. And a friendship that made the ordinary unforgettable.</p>
+          <div class="handwritten-note">The man. The legend.<br><em>The Old Horse.</em> <span>— Rahul</span></div>
+        </div>
+        <figure class="portrait-art">
+          <span class="portrait-orbit orbit-1"></span><span class="portrait-orbit orbit-2"></span>
+          <span class="portrait-label portrait-label-top">PK SHARMA · ORIGINAL ISSUE</span>
+          <img src="assets/photos/pk-formal.webp" alt="PK in a formal blue waistcoat and tie" decoding="async">
+          <figcaption>THE GOOD LOOKS WERE NEVER IN QUESTION.</figcaption>
+        </figure>
+      </div>
+      <div class="era-footnote"><span>VOLUME 09</span><span>FRIENDSHIP RECORD · EST. 2017</span></div>
+    </section>
+
+    <!-- 03: The school as the beginning of the story. -->
+    <section class="scene scene-origin" data-title="WHERE IT ALL BEGAN" id="originScene" aria-hidden="true">
+      <div class="origin-heading scene-copy">
+        <p class="eyebrow">CHAPTER 02 <span>·</span> THE BEGINNING</p>
+        <h2>Before life became<br><em>deadlines and plans…</em></h2>
+      </div>
+      <figure class="origin-photo">
+        <img src="assets/photos/jnv-entrance.webp" alt="Jawahar Navodaya Vidyalaya entrance, Korba" loading="lazy" decoding="async">
+        <figcaption>THE PLACE THAT GAVE US MORE THAN A SCHOOL ID.</figcaption>
+      </figure>
+      <div class="origin-story">
+        <p>There was a house block, a classroom, a basketball court, a stage, and a group of boys who could turn even an ordinary day into a story worth retelling.</p>
+        <p>Somewhere in those JNV days, Rahul and PK became a duo. The years moved on. The jokes stayed. And somehow, nine years later, we still have stories that deserve their own archive.</p>
+        <span class="origin-signature">— Rahul</span>
+      </div>
+      <div class="orbit-stats" aria-label="Friendship facts">
+        <span><b>09</b><small>YEARS</small></span><span><b>02</b><small>PARTNERS IN MISCHIEF</small></span><span><b>∞</b><small>STORIES</small></span><span><b>20</b><small>YEARS OF PK</small></span>
+      </div>
+    </section>
+
+    <!-- 04: Chapter selection is a typographic trail, not a grid of cards. -->
+    <section class="scene scene-trail" data-title="PICK A MEMORY" id="trailScene" aria-hidden="true">
+      <div class="trail-intro scene-copy">
+        <p class="eyebrow">CHAPTER 03 <span>·</span> THE MEMORY TRAIL</p>
+        <h2>Some files are funny.<br><em>Some are legendary.</em></h2>
+        <p>Choose where we go next. No wrong answers. A little risk of embarrassment.</p>
+      </div>
+      <div class="memory-trail">
+        <button type="button" data-go="4"><span class="trail-no">01</span><span class="trail-title">Operation: 12:00 AM</span><span class="trail-desc">Fifteen friends. One housemaster.</span><span class="trail-arrow">↗</span></button>
+        <button type="button" data-go="5"><span class="trail-no">02</span><span class="trail-title">The Holi Reboot</span><span class="trail-desc">Seven months apart. One festival back together.</span><span class="trail-arrow">↗</span></button>
+        <button type="button" data-go="6"><span class="trail-no">03</span><span class="trail-title">The Missing Shoes</span><span class="trail-desc">PK disappeared. The footwear did not.</span><span class="trail-arrow">↗</span></button>
+        <button type="button" data-go="7"><span class="trail-no">04</span><span class="trail-title">The PK Dossier</span><span class="trail-desc">Six facts. One certified Patnawasi.</span><span class="trail-arrow">↗</span></button>
+      </div>
+      <p class="trail-last-line">AND AFTER THAT, THE PEOPLE AND THE PHOTOGRAPHS.</p>
+    </section>
+
+    <!-- 05: The midnight operation, with a playful mission replay. -->
+    <section class="scene scene-operation" data-title="OPERATION: 12 AM" id="operationScene" aria-hidden="true">
+      <div class="operation-backdrop-number" aria-hidden="true">15</div>
+      <div class="operation-layout">
+        <div class="operation-copy scene-copy">
+          <p class="eyebrow">CHAPTER 04 <span>·</span> HOUSE BLOCK 01</p>
+          <p class="mono-kicker">MISSION LOG · 00:00 HOURS</p>
+          <h2>Operation:<br><em>Rohan's birthday.</em></h2>
+          <p>A surprise party. Fifteen friends. One very angry housemaster.</p>
+          <div class="operation-story">
+            <p>It was Rohan's birthday. We waited until he fell asleep, then decorated the whole house block. Our block. Our plan. Our moment.</p>
+            <p>At exactly midnight, all fifteen of us shouted the birthday wish at full volume. Beautiful, heartfelt, and—looking back—not particularly subtle.</p>
+            <p>The housemaster, who lived next to our first block, woke up and came out furious. The second his voice reached us, the great escape began. Everyone scattered. Rohan, PK and the friends whose beds were there had to stay back and act as if absolutely nothing had happened.</p>
+            <p>The search continued for nearly thirty minutes. Fifteen friends had never been so committed to the art of hiding.</p>
+          </div>
+          <div class="operation-verdict">MISSION ACCOMPLISHED <em>·</em> STEALTH RATING: QUESTIONABLE.</div>
+          <button class="story-action" id="replayOperation" type="button"><span>▶</span> REPLAY THE HOUSEMASTER ALERT</button>
+          <p class="operation-log" id="operationLog" aria-live="polite">SYSTEM STATUS: ALL CLEAR. FOR NOW.</p>
+        </div>
+        <figure class="operation-photo"><img src="assets/photos/the-crew.webp" alt="The friends together outdoors" loading="lazy" decoding="async"><figcaption>THE SUSPECTS, BEFORE THE GREAT ESCAPE.</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- 06: Colourful Holi scene with interactive colour release. -->
+    <section class="scene scene-holi" data-title="THE HOLI REBOOT" id="holiScene" aria-hidden="true">
+      <div class="holi-colours" id="holiColours" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="holi-layout">
+        <figure class="holi-photo"><img src="assets/photos/pk-and-chou.webp" alt="PK and Rahul standing together" loading="lazy" decoding="async"><figcaption>AFTER THE PAUSE · BACK TO US</figcaption></figure>
+        <div class="holi-copy scene-copy">
+          <p class="eyebrow">CHAPTER 05 <span>·</span> THE REBOOT</p>
+          <p class="mono-kicker">A SEVEN-MONTH PAUSE</p>
+          <h2>Some friendships<br>take a detour.<br><em>Not an ending.</em></h2>
+          <p>One argument. One disagreement. And suddenly, two best friends who had shared years of laughter were not talking for seven months.</p>
+          <p>Then came Holi. Somewhere between the colours, the chaos and the kind of mischief only our gang could invent, we found our way back to each other.</p>
+          <p>That day also involved a school-garden pond, a friend who took an unexpected dip, and a teacher who ended up with a little Holika-dahan ash. Our judgement that afternoon? Still under review.</p>
+          <button class="colour-button" id="bringBackColour" type="button">BRING BACK THE COLOUR <span>✦</span></button>
+          <blockquote class="holi-lesson" id="holiLesson" hidden>“A real friendship can survive a long silence—and still find its way back to laughter.”</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07: Shoes case with an interactive inspection. -->
+    <section class="scene scene-shoes" data-title="THE MISSING SHOES" id="shoesScene" aria-hidden="true">
+      <div class="shoes-layout">
+        <div class="shoes-copy scene-copy">
+          <p class="eyebrow">CHAPTER 06 <span>·</span> INCIDENT REPORT</p>
+          <p class="mono-kicker">HOSTEL VISIT · EXHIBIT A</p>
+          <h2>The shoes<br>that <em>stayed behind.</em></h2>
+          <p>PK once came to my house. He took off his shoes. Unfortunately, the shoes had their own personality—and it was impossible to ignore.</p>
+          <p>At that exact moment, the housemaster walked in. PK made a quick exit. The shoes, however, did not receive the evacuation memo.</p>
+          <p>So there I was, standing next to the abandoned evidence, while sir decided I was the person who needed a lecture.</p>
+          <div class="shoe-verdict"><span>FINAL VERDICT</span><strong>Escape: 10/10<br>Footwear planning: 0/10</strong></div>
+          <button class="story-action" id="inspectEvidence" type="button"><span>⌕</span> INSPECT THE EVIDENCE</button>
+          <p class="evidence-result" id="evidenceResult" hidden>CASE CLOSED. THE SHOES WERE LEFT WITHOUT REPRESENTATION.</p>
+        </div>
+        <figure class="evidence-photo"><span class="evidence-stamp" id="evidenceStamp">EXHIBIT A</span><img src="assets/photos/the-evidence.webp" alt="A candid photograph from the old days" loading="lazy" decoding="async"><figcaption>THE ARCHIVE DOES NOT FORGET.</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- 08: PK dossier. -->
+    <section class="scene scene-dossier" data-title="THE PK DOSSIER" id="dossierScene" aria-hidden="true">
+      <div class="dossier-heading scene-copy">
+        <p class="eyebrow">CHAPTER 07 <span>·</span> PERSON OF GREAT INTEREST</p>
+        <h2>The PK <em>Sharma dossier.</em></h2>
+        <p>A closer look at the man behind the memories. Some facts are verified. Some are based on nine years of highly unofficial research.</p>
+      </div>
+      <div class="dossier-content">
+        <figure class="dossier-photo"><img src="assets/photos/blue-suit.webp" alt="PK dressed in a blue formal suit" loading="lazy" decoding="async"><figcaption>FORMAL MODE: ACTIVATED</figcaption></figure>
+        <ol class="dossier-traits">
+          <li><span>01 / APPEARANCE</span><strong>Strong presence. Handsome looks.</strong><i>✓</i></li>
+          <li><span>02 / INTELLECT</span><strong>Brilliant in studies. Knowledge kept undercover.</strong><i>✓</i></li>
+          <li><span>03 / OPERATING STYLE</span><strong>Realistic, adventurous, and hard to distract.</strong><i>✓</i></li>
+          <li><span>04 / AUDIO SIGNATURE</span><strong>Bihari-Bhojpuri tone. Instantly recognisable.</strong><i>✓</i></li>
+          <li><span>05 / FIELD NAME</span><strong>OLD HORSE. Don't ask. Just accept.</strong><i>✓</i></li>
+          <li><span>06 / LOYALTY</span><strong>PK & Chou. A partnership with history.</strong><i>∞</i></li>
+        </ol>
+      </div>
+      <div class="dossier-bottom"><span>ORIGIN: PATNA, BIHAR</span><span>AGE: 20</span><strong>CERTIFIED PATNAWASI <b>✦</b></strong></div>
+    </section>
+
+    <!-- 09: The gang, not a boxed profile grid. -->
+    <section class="scene scene-crew" data-title="THE USUAL SUSPECTS" id="crewScene" aria-hidden="true">
+      <div class="crew-heading scene-copy">
+        <p class="eyebrow">CHAPTER 08 <span>·</span> THE PEOPLE WHO MADE IT</p>
+        <h2>No good story<br><em>happens alone.</em></h2>
+      </div>
+      <figure class="crew-photo"><img src="assets/photos/the-crew.webp" alt="Three friends together on a road" loading="lazy" decoding="async"><figcaption>ONE FRAME. SEVERAL STORIES.</figcaption></figure>
+      <div class="crew-rollcall">
+        <div><span>THE SUBJECT</span><strong>PK Sharma</strong><small>OLD HORSE</small></div>
+        <div><span>THE ARCHIVIST</span><strong>Rahul</strong><small>THE OTHER HALF</small></div>
+        <div><span>THE CREW</span><strong>Karim <i>·</i> Sameer <i>·</i> Anurag</strong><small>THE USUAL SUSPECTS</small></div>
+        <div><span>THE CREW</span><strong>Rohan <i>·</i> Manish</strong><small>ALWAYS IN THE STORY</small></div>
+      </div>
+      <p class="crew-note">And to everyone who shared those corridors, meals, games, celebrations and punishments: you are part of the archive, too.</p>
+    </section>
+
+    <!-- 10: An interactive film gallery with uncropped, enhanced images. -->
+    <section class="scene scene-gallery" data-title="THE PHOTO ARCHIVE" id="galleryScene" aria-hidden="true">
+      <div class="gallery-heading scene-copy">
+        <p class="eyebrow">CHAPTER 09 <span>·</span> SIX FRAMES, A THOUSAND MEMORIES</p>
+        <h2>Proof that<br><em>it really happened.</em></h2>
+      </div>
+      <div class="gallery-experience" id="galleryExperience">
+        <div class="gallery-topline"><span id="galleryFrameNumber">FRAME 01 / 07</span><span>MOVE THROUGH THE YEARS <b>↔</b></span></div>
+        <figure class="gallery-stage" id="galleryStage">
+          <div class="gallery-image-halo"></div>
+          <img id="galleryImage" src="assets/photos/the-crew.webp" alt="The crew together outdoors" decoding="async">
+          <figcaption id="galleryCaption">The squad. One frame, several stories.</figcaption>
+        </figure>
+        <div class="gallery-controls">
+          <button type="button" id="galleryPrev" aria-label="Previous photograph">←</button>
+          <div class="gallery-progress" id="galleryProgress" aria-label="Choose photograph"></div>
+          <button type="button" id="galleryNext" aria-label="Next photograph">→</button>
+        </div>
+        <p class="gallery-instruction">TAP THE PHOTO TO SEE IT IN FULL · SWIPE TO CHANGE FRAME</p>
+      </div>
+      <div class="gallery-credits">THESE ARE NOT ALL THE MEMORIES. JUST THE ONES THAT MADE IT INTO THE FILE.</div>
+    </section>
+
+    <!-- 11: The letter is deliberately only available at the very end. -->
+    <section class="scene scene-letter" data-title="A LETTER FROM RAHUL" id="letterScene" aria-hidden="true">
+      <div class="letter-intro scene-copy" id="letterIntro">
+        <p class="eyebrow">CHAPTER 10 <span>·</span> ONE LAST THING</p>
+        <p class="letter-overline">THE ARCHIVE CAN END HERE.</p>
+        <h2>But I still have<br><em>something to say.</em></h2>
+        <p>Some things are better said in your own words. This one is yours to keep.</p>
+        <button class="letter-open-button" id="openLetterButton" type="button"><span class="letter-seal">R</span><span>OPEN THE LETTER</span><span>↗</span></button>
+      </div>
+      <article class="letter-paper" id="letterPaper" hidden>
+        <div class="letter-paper-top"><span>A LETTER FROM RAHUL</span><span>08 / 11 / 2026</span></div>
+        <div class="letter-body">
+          <p class="letter-salutation">Dear PK ❤️,</p>
+          <p>नौ 9️⃣ साल। सुनने में ये सिर्फ़ एक number लगता है, लेकिन जब इन सालों में जी गई हर एक याद को समेटने बैठता हूँ, तो एहसास होता है कि ये वक्त कितना बड़ा रहा है।</p>
+          <p>हम दोनों ने मिलकर एक-दूसरे की टाँग खींची 🤪, पूरी दुनिया और classroom में सबका मज़ाक उड़ाया, साथ खेले 🏀, नाचे और हाँ—ऐसी बातों पर भी लड़े, जिनके लिए शायद सात महीने की चुप्पी की बिल्कुल ज़रूरत नहीं थी। लेकिन इन सबके बीच हमने इतनी कहानियाँ और यादें जमा कर लीं कि उन पर सच में एक पूरी website 🌐 बन सकती है।</p>
+          <p>रोहन के birthday 🎂 वाली वो रात याद है? Rohan के सो जाने के बाद हम सबने मिलकर अपने House Block का कमरा सजाया था, बारह बजने का इंतज़ार किया और ठीक 12 बजे इतनी ज़ोर से शोर मचाकर wish किया कि Das Sir गुस्से में उठकर आ गए। उनकी आवाज़ सुनते ही हम सब ऐसे भागे जैसे कोई बड़ा operation fail हो गया हो! हम करीब 15 दोस्त थे, लेकिन उस वक्त सबको अपनी जान प्यारी थी। Rohan, तुम और जिन दोस्तों के beds वहीं थे, वे ऐसे act कर रहे थे जैसे कुछ हुआ ही न हो, और बाकी सब इधर-उधर छिपते फिर रहे थे। करीब 30 minutes तक चला वो search operation आज भी मेरी सबसे favourite memories में से एक है। 😂</p>
+          <p>और फिर हमारे बीच का वो लंबा सन्नाटा... एक बहस के बाद सात महीने तक हमने एक-दूसरे से बात नहीं की। लेकिन शुक्र है Holi का, जिसने हमें फिर से साथ ला दिया। उस दिन उस समय मुझे कुछ समझ नहीं आ रहा था—बस अच्छा लग रहा था। फिर सब कुछ अपने-आप, automatic हो गया। ❤️</p>
+          <p>मैं वो दिन भी कभी नहीं भूल सकता जब तुम मेरे घर आए थे और निकलते वक्त अपने जूते 👟 वहीं छोड़ गए। तुम तो साफ़ निकल गए, और Pandey Sir का पूरा lecture मुझे सुनना पड़ा। क्या कमाल की teamwork थी हमारी, buddhe ghode! 🤣</p>
+          <p>मज़ाक से हटकर कहूँ तो, मैं सच में तुम्हारी इस दोस्ती के लिए दिल से grateful हूँ। तुम अंदर से बेहद मज़बूत 💪, समझदार, practical और adventure पसंद इंसान हो। पढ़ाई में brilliant होने के साथ-साथ तुम्हारे पास knowledge भी कम नहीं है—बस तुम उसे दिखाते नहीं। मैं दुआ करता हूँ कि ज़िंदगी तुम्हें वो हर मौका दे जो तुम्हें तुम्हारी मंज़िल तक पहुँचाए, और वो हौसला दे जिससे तुम हर नए सफ़र पर निडर होकर निकल सको। ✨</p>
+          <p>और हाँ, तू हर बार अपने birthday पर घर पर ही होता है। मुझे तो याद भी नहीं कि कभी हमने तेरा birthday साथ में मनाया हो! 😄 कोई बात नहीं, ये कमी भी जल्दी पूरी करेंगे—अब अगली बार cake साथ काटना है।</p>
+          <p>अब जब तुम 2️⃣0️⃣ साल के हो रहे हो 🎉, तो मैं तुम्हारे लिए अच्छी सेहत, सच्ची खुशी, कामयाबी और ऐसे लोगों की कामना करता हूँ जो हर मोड़ पर तुम्हारे साथ खड़े रहें। यहाँ से ज़िंदगी हमें चाहे किसी भी रास्ते पर ले जाए, हमारा एक हिस्सा हमेशा उन JNV के दिनों की यादों में ज़िंदा रहेगा। और हाँ, बहुत जल्द हम नई यादें भी बनाएँगे।</p>
+          <p>तुम्हारे साथ की वजह से ही शायद एक introvert, जो कभी चार दीवारी तक ही सोचता था, आज बड़े सपने देखने और उनके लिए ready होने लगा है। Thank you for being there, thank you for being with me. ❤️</p>
+          <p class="letter-final">जन्मदिन मुबारक हो, भाई! 🎂 ज़िंदगी के इस नए chapter के लिए ढेर सारी शुभकामनाएँ—and here's to all the stories we still have to write together.</p>
+          <p class="letter-signature">तुम्हारा दोस्त,<br>Rahul <span>♡</span></p>
+        </div>
+        <div class="letter-paper-bottom">END OF FILE · BEGINNING OF ANOTHER YEAR</div>
+      </article>
+      <div class="letter-finale-line" id="letterFinaleLine" hidden>TO THE NEXT NINE YEARS. AND ALL THE STORIES WE HAVEN'T LIVED YET. <span>♡</span></div>
+    </section>
+  </main>
+
+  <nav class="journey-controls" id="journeyControls" hidden aria-label="Story navigation">
+    <button type="button" id="previousScene" class="journey-back" disabled><span>←</span><small>BACK</small></button>
+    <div class="journey-progress"><span id="journeyCount">01 / 11</span><div class="journey-track"><i id="journeyFill"></i></div><small id="journeyLabel">THE BIRTHDAY</small></div>
+    <button type="button" id="nextScene" class="journey-next"><small>KEEP GOING</small><span>→</span></button>
+  </nav>
+
+  <audio id="birthdayMix" preload="auto" playsinline src="assets/audio/birthday-surprise.mp3"></audio>
+  <div class="photo-lightbox" id="photoLightbox" hidden role="dialog" aria-modal="true" aria-label="Full photograph">
+    <button type="button" id="closePhoto" aria-label="Close photograph">×</button>
+    <figure><img id="lightboxImage" alt=""><figcaption id="lightboxCaption"></figcaption></figure>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>

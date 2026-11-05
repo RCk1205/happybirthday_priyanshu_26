@@ -1,0 +1,10 @@
+PK BIRTHDAY — WORLD EDITION
+Audio + wish-flow fix
+Build: 2026-11-05
+
+This package retains the approved creative redesign and corrects only:
+- native audio preloading (no fetch/Blob, avoiding file:// fetch restrictions)
+- the silent lead-in between party boom and Jaane Kyun
+- a 5.2-second minimum wish window followed by a manual blowout action; candles no longer extinguish automatically
+
+Open this folder's index.html or preview it with: py -m http.server 8000
