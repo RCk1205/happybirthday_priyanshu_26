@@ -1,4 +1,4 @@
-﻿(() => {
+(() => {
   "use strict";
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
@@ -42,7 +42,7 @@
     toastTimer = setTimeout(() => { toast.hidden = true; }, 3000);
   }
 
-  function setWishButton(label, icon = "âœ¦", trailing = "â†—") {
+  function setWishButton(label, icon = "✦", trailing = "↗") {
     const iconNode = $(".wish-button-icon", makeWishButton);
     const labelNode = $("#wishButtonText", makeWishButton);
     const trailingNode = $(".wish-button-arrow", makeWishButton);
@@ -141,7 +141,7 @@
     else if (playing && birthdayAudio.currentTime < boomLength) soundLabel.textContent = "PARTY BOOM";
     else if (playing) soundLabel.textContent = "JAANE KYUN";
     else soundLabel.textContent = "SOUND PAUSED";
-    soundButton.querySelector(".sound-play").textContent = playing ? "â…¡" : "â–¶";
+    soundButton.querySelector(".sound-play").textContent = playing ? "Ⅱ" : "▶";
   }
 
   function setAudioReady() {
@@ -150,7 +150,7 @@
     audioPreparing = false;
     cakeTrigger.setAttribute("aria-disabled", "false");
     makeWishButton.disabled = false;
-    setWishButton("MAKE A WISH â€” TAP WHEN READY", "âœ¦", "â†—");
+    setWishButton("MAKE A WISH — TAP WHEN READY", "✦", "↗");
     soundStatus.textContent = "SOUND READY. YOUR TAP WILL PLAY THE PARTY BOOM, THEN JAANE KYUN.";
     soundLabel.textContent = "SOUND READY";
     updateSoundState();
@@ -160,7 +160,7 @@
     audioPreparing = false;
     audioReady = false;
     makeWishButton.disabled = false;
-    setWishButton("RETRY SOUND LOAD", "â†»", "â†—");
+    setWishButton("RETRY SOUND LOAD", "↻", "↗");
     soundStatus.textContent = message || "THE SOUNDTRACK COULD NOT LOAD. CHECK birthday-surprise.mp3 AND RETRY.";
     soundLabel.textContent = "SOUND RETRY";
     updateSoundState();
@@ -170,7 +170,7 @@
     if (audioReady || audioPreparing) return;
     audioPreparing = true;
     makeWishButton.disabled = true;
-    setWishButton("LOADING THE SURPRISEâ€¦", "âœ¦", "â†—");
+    setWishButton("LOADING THE SURPRISE…", "✦", "↗");
     soundStatus.textContent = "LOADING THE COMPLETE SOUNDTRACK. THE WISH BUTTON WILL UNLOCK WHEN IT IS READY.";
     soundLabel.textContent = "LOADING SOUND";
     soundButton.disabled = true;
@@ -223,10 +223,10 @@
     scene.classList.remove("wish-in-progress");
     scene.classList.add("celebrated");
     cakeTrigger.setAttribute("aria-disabled", "true");
-    setWishButton("WISH GRANTED Â· HAPPY 20TH!", "âœ¦", "âœ“");
+    setWishButton("WISH GRANTED · HAPPY 20TH!", "✦", "✓");
     makeWishButton.disabled = true;
-    $("#wishCountdown").textContent = "WISH SENT. NOW GO MAKE IT HAPPEN. âœ¦";
-    soundStatus.textContent = "THE CANDLES ARE OUT. JAANE KYUN IS PLAYING â€” LET THE CELEBRATION CONTINUE.";
+    $("#wishCountdown").textContent = "WISH SENT. NOW GO MAKE IT HAPPEN. ✦";
+    soundStatus.textContent = "THE CANDLES ARE OUT. JAANE KYUN IS PLAYING — LET THE CELEBRATION CONTINUE.";
     launchConfetti();
     wishTimers.push(window.setTimeout(launchConfetti, 520));
   }
@@ -235,7 +235,7 @@
     if (!wishInProgress) return;
     wishReadyToBlow = true;
     makeWishButton.disabled = false;
-    setWishButton("BLOW OUT THE CANDLES", "âœ¦", "â†—");
+    setWishButton("BLOW OUT THE CANDLES", "✦", "↗");
     $("#wishCountdown").textContent = "WHEN YOUR WISH IS READY, TAP TO BLOW OUT THE CANDLES.";
     soundStatus.textContent = "YOUR WISH IS STILL LIT. TAP THE BUTTON WHEN YOU ARE READY.";
   }
@@ -244,9 +244,9 @@
     const countdown = $("#wishCountdown");
     const lines = [
       [0, "CLOSE YOUR EYES. TAKE A BREATH."],
-      [1150, "MAKE YOUR WISHâ€¦"],
+      [1150, "MAKE YOUR WISH…"],
       [2300, "HOLD IT CLOSE. THINK BIG."],
-      [3400, "ALMOST THEREâ€¦"],
+      [3400, "ALMOST THERE…"],
       [4400, "TAKE YOUR TIME. YOUR CANDLES ARE STILL LIT."]
     ];
     lines.forEach(([delay, message]) => {
@@ -268,7 +268,7 @@
     scene.classList.remove("wish-in-progress", "celebrated");
     cakeTrigger.setAttribute("aria-disabled", "false");
     makeWishButton.disabled = false;
-    setWishButton("RETRY THE BIRTHDAY SOUND", "â†»", "â†—");
+    setWishButton("RETRY THE BIRTHDAY SOUND", "↻", "↗");
     $("#wishCountdown").textContent = "YOUR WISH IS STILL WAITING. TAP AGAIN WHEN SOUND IS READY.";
     soundStatus.textContent = "THIS DEVICE BLOCKED AUDIO PLAYBACK. TAP THE WISH BUTTON AGAIN TO RETRY.";
     soundButton.disabled = true;
@@ -312,7 +312,7 @@
     scene.classList.remove("celebrated");
     scene.classList.add("wish-in-progress");
     makeWishButton.disabled = true;
-    setWishButton("YOUR WISH IS IN THE MAKINGâ€¦", "â™¡", "âœ¦");
+    setWishButton("YOUR WISH IS IN THE MAKING…", "♡", "✦");
     soundStatus.textContent = "PARTY BOOM! JAANE KYUN WILL FOLLOW IN THE SAME TRACK.";
     $("#wishCountdown").textContent = "CLOSE YOUR EYES. TAKE A BREATH.";
     beginWishCountdown();
@@ -354,11 +354,11 @@
   // Operation replay: an animated sequence of mission log entries.
   const operationLog = $("#operationLog");
   const missionLines = [
-    "23:59 â€” DECORATIONS COMPLETE. EVERYONE, STAY QUIET.",
-    "00:00 â€” HAPPY BIRTHDAY, ROHAN!!!",
-    "00:01 â€” ALERT: HOUSEMASTER DETECTED NEAR BLOCK 01.",
-    "00:02 â€” FIFTEEN FRIENDS. FIFTEEN DIFFERENT ESCAPE PLANS.",
-    "00:30 â€” SEARCH OVER. FRIENDSHIP INTACT. STEALTH: QUESTIONABLE."
+    "23:59 — DECORATIONS COMPLETE. EVERYONE, STAY QUIET.",
+    "00:00 — HAPPY BIRTHDAY, ROHAN!!!",
+    "00:01 — ALERT: HOUSEMASTER DETECTED NEAR BLOCK 01.",
+    "00:02 — FIFTEEN FRIENDS. FIFTEEN DIFFERENT ESCAPE PLANS.",
+    "00:30 — SEARCH OVER. FRIENDSHIP INTACT. STEALTH: QUESTIONABLE."
   ];
   $("#replayOperation").addEventListener("click", () => {
     clearInterval(operationTimer);

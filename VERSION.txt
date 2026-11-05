@@ -1,4 +1,7 @@
 PK BIRTHDAY — WORLD EDITION
-Flat-root media path alignment
+UTF-8 TEXT RESTORATION
 Build: 2026-11-05
-HTML and JavaScript media references point to repository root files.
+
+Corrected: index.html and app.js
+Unchanged: styles.css, all media, audio sequence, interactions and scene layout.
+Repository layout: flat root; all referenced media files remain beside index.html.
